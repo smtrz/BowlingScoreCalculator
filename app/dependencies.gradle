@@ -1,0 +1,147 @@
+final RetrofitVersion = '2.9.0'
+final OkHttpVersion = '4.10.0'
+final roomVersion = '2.4.0'
+final lifecycle_version = '2.4.0'
+final rxAndroid_version = '2.1.1'
+final rxJava_version = '2.2.19'
+final moshi_version = '1.12.0'
+final daggerHiltVersion = '2.40'
+final hiltLifeCycleVersion = '1.0.0-alpha03'
+final activity_version = "1.1.0"
+final paging = "3.1.0-beta01"
+final work_version = "2.7.1"
+final nav_version = "2.5.1"
+final compose_version = "1.2.1"
+ext {
+
+    //Dependencies of Network
+    networkDependencies = [
+            retrofit             : "com.squareup.retrofit2:retrofit:${RetrofitVersion}",
+            retrofitGsonConverter: "com.squareup.retrofit2:converter-gson:${RetrofitVersion}",
+            okHttp3Logging       : "com.squareup.okhttp3:logging-interceptor:${OkHttpVersion}",
+            picasso              : "com.squareup.picasso:picasso:2.71828",
+            coroutines           : "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3",
+            coroutine_core       : "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3",
+
+            rxJava               : "io.reactivex.rxjava2:rxjava:${rxJava_version}",
+            rxAndroid            : "io.reactivex.rxjava2:rxandroid:${rxAndroid_version}",
+            retrofit_rx          : "com.squareup.retrofit2:adapter-rxjava2:${RetrofitVersion}",
+            retrofit_moshi       : "com.squareup.retrofit2:converter-moshi:${RetrofitVersion}",
+            moshi                : "com.squareup.moshi:moshi:${moshi_version}",
+            moshi_kotlin         : "com.squareup.moshi:moshi-kotlin:${moshi_version}",
+            moshi_adapter        : "com.squareup.moshi:moshi-adapters:${moshi_version}"
+    ]
+    networkTestDependencies = [
+            mockwebserver: "com.squareup.okhttp3:mockwebserver:${OkHttpVersion}"
+    ]
+    //Dependencies of Misc Libs
+    miscDependencies = [
+            commonLang      : "commons-lang:commons-lang:2.6",
+            commonCollection: "org.apache.commons:commons-collections4:4.0",
+            intuit          : "com.intuit.sdp:sdp-android:1.0.6",
+            dagger2         : "com.google.dagger:dagger:2.28",
+            test_core       : "androidx.core:core-ktx:1.7.0",
+            workmanager_hilt: "androidx.hilt:hilt-work:1.0.0-alpha02",
+            workmanager     : "androidx.work:work-runtime-ktx:$work_version",
+            coreTest        : 'androidx.test:core-ktx:1.4.0'
+
+
+    ]
+
+    //Dependencies of Android Support Libs
+    supportDependencies = [
+            appCompat       : "androidx.appcompat:appcompat:$rootProject.supportLibraryVersion",
+            customTabs      : "androidx.browser:browser:1.0.0",
+            support         : "androidx.legacy:legacy-support-v4:1.0.0",
+            design          : "com.google.android.material:material:1.4.0",
+            recyclerView    : "androidx.recyclerview:recyclerview:1.2.1",
+            constraintLayout: "androidx.constraintlayout:constraintlayout:1.1.3",
+            multidex        : "androidx.multidex:multidex:2.0.0",
+            livedata        : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version",
+            viewModel       : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version",
+            room            : "androidx.room:room-runtime:$roomVersion",
+            roomCoroutine   : "androidx.room:room-ktx:$roomVersion",
+            viewBinding     : "com.android.databinding:viewbinding:4.2.1",
+            act_kotlin      : "androidx.activity:activity-ktx:$activity_version",
+            pagination      : "androidx.paging:paging-runtime:$paging",
+            navfragment     : "androidx.navigation:navigation-fragment-ktx:$nav_version",
+            navktx          : "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+
+    ]
+    Di = [
+            hilt                 : "com.google.dagger:hilt-android:$daggerHiltVersion",
+            _hilt                : "androidx.hilt:hilt-lifecycle-viewmodel:$hiltLifeCycleVersion",
+            hiltnavigationcompose: "androidx.hilt:hilt-navigation-compose:1.0.0"
+
+
+    ]
+    annotations = [
+            roomKotlinAnnotation: "androidx.room:room-compiler:$roomVersion"
+
+
+    ]
+    kotlinAnnotations = [
+
+            roomAnnotation: "androidx.room:room-compiler:$roomVersion",
+            dagger2       : "com.google.dagger:dagger-compiler:2.28",
+            moshi         : "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version",
+            hilt          : "com.google.dagger:hilt-android-compiler:$daggerHiltVersion",
+            _hilt         : "androidx.hilt:hilt-compiler:$hiltLifeCycleVersion"
+
+
+    ]
+
+    kotlinSymbolicProcessing = [
+            roomKsp: "androidx.room:room-compiler:$roomVersion"
+
+
+    ]
+
+    testing = [
+            roomTest      : "androidx.room:room-testing:$roomVersion",
+            junit         : "junit:junit:4.13.2",
+            coroutine_test: "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2",
+            coreTest      : "androidx.arch.core:core-testing:2.1.0",
+            mockito_inline: "org.mockito:mockito-inline:3.11.2",
+            mockito_core  : "org.mockito:mockito-core:3.11.2",
+
+
+    ]
+    android_testing = [
+            coreTest      : "androidx.arch.core:core-testing:2.1.0",
+            test_runner   : "androidx.test:runner:1.4.0",
+            test_rules    : "androidx.test:rules:1.4.0",
+            mockito_core  : "org.mockito:mockito-core:3.11.2",
+            coroutine_test: "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4",
+            mock          : "org.mockito:mockito-android:3.11.2",
+            composetest   : "androidx.compose.ui:ui-test-junit4:$compose_version"
+
+
+    ]
+    compose = [
+            composeui                  : "androidx.compose.ui:ui:$compose_version",
+            composetool                : "androidx.compose.ui:ui-tooling:$compose_version",
+            composefoundation          : "androidx.compose.foundation:foundation:$compose_version",
+            composematerial            : "androidx.compose.material:material:$compose_version",
+            composematerialicon        : "androidx.compose.material:material-icons-core:$compose_version",
+            composematerialiconextended: "androidx.compose.material:material-icons-core:$compose_version",
+            composelivedata            : "androidx.compose.runtime:runtime-livedata:$compose_version",
+            composerxjava              : "androidx.compose.runtime:runtime-rxjava2:$compose_version",
+            composepreview             : "androidx.compose.ui:ui-tooling-preview:$compose_version",
+            composelivecyle            : "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha02",
+            composeactivity            : "androidx.activity:activity-compose:1.3.1",
+            coil                       : "io.coil-kt:coil-compose:2.0.0-rc01",
+            pagingcompose              : "androidx.paging:paging-compose:1.0.0-alpha16"
+
+
+    ]
+
+    debugImpl = [
+            composeui      : "androidx.compose.ui:ui-tooling:$compose_version",
+            composemanifest: "androidx.compose.ui:ui-test-manifest:$compose_version"
+
+    ]
+
+
+}

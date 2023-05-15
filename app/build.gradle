@@ -1,0 +1,90 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: 'dependencies.gradle'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+android {
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+    }
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId rootProject.ext.applicationId
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+
+    }
+}
+
+
+dependencies {
+
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //Dependencies of Network Libs
+    implementation networkDependencies.values()
+
+    //Dependencies of Misc Libs
+    implementation miscDependencies.values()
+
+    //Dependencies of Android Support Libs
+    implementation supportDependencies.values()
+
+    //  annotation processing
+    annotationProcessor annotations.values()
+
+    // kotlin annotation processing
+    kapt kotlinAnnotations.values()
+
+    //test dependencies
+    implementation networkTestDependencies.values()
+    testImplementation testing.values()
+
+    //DI
+
+    implementation Di.values()
+
+    // compose
+    implementation compose.values()
+    // android test implementations
+    androidTestImplementation android_testing.values()
+
+//debug implementation
+    debugImplementation debugImpl.values()
+}
