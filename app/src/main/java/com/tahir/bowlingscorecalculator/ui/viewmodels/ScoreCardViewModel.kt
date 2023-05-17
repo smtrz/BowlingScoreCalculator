@@ -61,14 +61,14 @@ class ScoreCardViewModel : ViewModel() {
                                         bowlingGame[index + 1].pinsKnockedList[0]
                         }
                     }
-                    // Checking if the *ShotType* of current frame is STRIKE and the score is not yet calculated
+                    // Checking if the ShotType of current frame is NORMAL and the score is not yet calculated
                     else {
                         if (currentFrame.totalScore == 0 && index < TOTAL_POSSIBLE_FRAMES - 1) {
                             currentFrame.totalScore =
                                 currentFrame.frameScore + (bowlingGame.maxByOrNull { it.totalScore }?.totalScore
                                     ?: 0)
                         } else {
-                            // 10th Frame and bonus needs to be calculated
+                            // 10th Frame and score needs to be calculated
                             if (currentFrame.totalScore == 0 && index == TOTAL_POSSIBLE_FRAMES - 1) {
                                 currentFrame.totalScore =
                                     bowlingGame.maxOf { it.totalScore } + bowlingGame[index].pinsKnockedList.sum()

@@ -40,8 +40,6 @@ data class Frame(
      * @return the pair with the bonus
      */
 
-    // use extension function, and replace the pair with a separate
-
     fun calculateStrikeBonus(gameFrame: MutableList<Frame>, index: Int): Pair<Boolean, Int> {
         var applyBonus = false
         var bonus = 0
